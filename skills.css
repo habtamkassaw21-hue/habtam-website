@@ -3,64 +3,82 @@
    ================================================== */
 
 body {
+    background: #f4f6f9;
+    color: #222;
+    line-height: 1.6;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f7f6;
-    color: #333;
-    text-align: center;
 }
 
 header {
-    background-color: #0056b3;
+    background: #004aad;
+    padding: 25px 0;
+    text-align: center;
     color: white;
-    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     position: relative;
+    overflow: hidden;
+    white-space: nowrap; /* ጽሑፉ ወደ ታች እንዳይወርድ */
 }
 
-.title-container h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    color: #ff9f00;
+header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: inline-block;
+    padding-left: 100%; /* አኒሜሽኑ ከቀኝ ጠርዝ እንዲጀምር */
+    animation: scroll-text 12s linear infinite; /* የጽሑፉ እንቅስቃሴ */
+}
+
+/* የእንቅስቃሴው መንገድ (Keyframes) */
+@keyframes scroll-text {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
 }
 
 /* 1. ማውጫው (nav) መጀመሪያ በግራ በኩል ተደብቆ እንዲቆይ ማድረግ */
 nav {
-    display: flex !important; /* መዋቅሩ ፍሌክስ ይሁን */
+    display: flex !important;
     flex-direction: column;
     width: 250px;
     height: 100vh;
     background-color: #222;
     position: fixed;
     top: 0;
-    left: -250px; /* 🛑 ይህ መስመር መጀመሪያ ሙሉ በሙሉ ደብቆ ያቆየዋል! */
+    left: -250px; /* 🛑 መጀመሪያ ሙሉ በሙሉ በስተግራ ይደበቃል */
     padding-top: 80px;
     transition: left 0.3s ease;
     z-index: 999;
 }
 
-/* ባለ 3 መስመሯ ስትነካ ብቻ ማውጫው 0 ላይ መጥቶ ይታያል */
+/* ባለ 3 መስመሯ ስትነካ ብቻ ማውጫው ከግራ ተንሸራቶ ይወጣል */
 nav.active {
     left: 0 !important;
 }
 
 nav a {
-    padding: 15px 20px;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: left;
     color: white;
     text-decoration: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
     display: block;
-    font-size: 1.1rem;
+    text-align: left;
     border-bottom: 1px solid #333;
+    margin: 0;
 }
 
 nav a:hover {
-    background-color: #0056b3;
+    color: #ffd700;
+    background-color: #004aad;
 }
 
-/* 2. ባለ 3 መስመሯ ቁልፍ አቀማመጥ */
+/* 2. ባለ 3 መስመሯ ቁልፍ አቀማመጥ (በስተግራ ከላይ) */
 .menu-toggle {
     display: flex !important;
     flex-direction: column;
@@ -72,8 +90,8 @@ nav a:hover {
     cursor: pointer;
     padding: 0;
     position: absolute;
-    bottom: 30px;
-    left: 20px;
+    top: 35px; /* ከላይ ያለው ርቀት */
+    left: 20px; /* ከግራ ያለው ርቀት */
     z-index: 1000;
 }
 
@@ -84,72 +102,94 @@ nav a:hover {
     border-radius: 2px;
 }
 
-/* 3. የካርዶቹ እና የሰማያዊ በተኖቹ ትክክለኛ የድሮ ዲዛይን */
-h2 {
-    color: #0056b3;
-    font-size: 2.2rem;
-    margin-top: 40px;
-    margin-bottom: 30px;
+/* 3. የካርዶቹ እና የይዘቱ ውብ የድሮ ዲዛይን */
+.page {
+    padding: 4rem 0;
 }
 
-/* ዋናው የካርድ መያዣ ሳጥን አቀማመጥ */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #4a90e2;
+    position: relative;
+}
+
+.section {
+    padding: 50px 20px;
+    text-align: left;
+    background: #ffffff;
+    margin: 30px auto;
+    width: 85%;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
 .skills-container {
     display: flex !important;
-    justify-content: center !important;
-    gap: 30px !important;
     flex-wrap: wrap !important;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto !important;
+    gap: 2rem !important;
+    justify-content: center !important;
 }
 
-/* በ HTML ፋይልህ ውስጥ ያሉትን 3ቱንም ሳጥኖች በአንድ ላይ ዲዛይን ማድረጊያ */
-.programming-languages, .web-development, .other-skills {
-    background-color: white !important;
-    border-radius: 10px !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
-    padding: 30px !important;
-    width: 45% !important;
-    min-width: 300px !important;
-    box-sizing: border-box !important;
-    text-align: left !important;
-    display: inline-block !important;
-    margin: 15px !important;
-    vertical-align: top !important;
+.skill-category {
+    background-color: #fff !important;
+    padding: 1.5rem !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+    flex: 1 1 300px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-/* የካርዶቹ የውስጥ አርዕስት ዲዛይን */
-.programming-languages h3, .web-development h3, .other-skills h3 {
-    color: #333 !important;
-    font-size: 1.5rem !important;
-    border-bottom: 2px solid #0056b3 !important;
-    padding-bottom: 10px !important;
-    margin-top: 0 !important;
+.skill-category:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+}
+
+.skill-category h2 {
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.skill-item ul {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+}
+
+.skill-item li {
+    background-color: #4a90e2 !important;
+    color: #fff !important;
+    margin: 0.5rem 0 !important;
+    padding: 0.6rem 1rem !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
     text-align: center !important;
+    transition: background 0.3s ease !important;
 }
 
-/* የሰማያዊ በተኖቹ (List) መልክ እና ነጥብ ማጥፊያ */
-.programming-languages ul, .web-development ul, .other-skills ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 20px 0 0 0 !important;
-}
-
-.programming-languages ul li, .web-development ul li, .other-skills ul li {
-    background-color: #4a90e2 !important; /* የሰማያዊ በተኑ ቀለም */
-    color: white !important;
-    padding: 12px !important;
-    margin-bottom: 12px !important;
-    border-radius: 5px !important;
-    text-align: center !important;
-    font-weight: bold !important;
-    list-style-type: none !important; /* ነጥቦቹን ሙሉ በሙሉ ያጠፋል */
+.skill-item li:hover {
+    background-color: #357ABD !important;
 }
 
 footer {
-    background-color: #0056b3;
-    color: white;
-    padding: 15px 0;
-    margin-top: 50px;
-    font-size: 0.9rem;
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: #4a90e2;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
