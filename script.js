@@ -26,3 +26,15 @@ if (headerTitle) {
         }, 200);
     }
 });
+// ባለ 3 መስመሯ ቁልፍ ስትነካ ማውጫው እንዲከፈትና እንዲዘጋ ማድረግ
+document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    // ቁልፉ እና ማውጫው በገጹ ላይ መኖራቸውን ማረጋገጫ
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", function() {
+            navMenu.classList.toggle("active");
+        });
+    }
+});
