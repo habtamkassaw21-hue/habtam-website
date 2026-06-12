@@ -132,3 +132,13 @@ header h1 {
     }
 }
 
+/* ቁልፉ ሲነካ ማውጫው እንዲታይ የሚያደርገው ኮድ */
+nav.active {
+    display: flex !important; /* መታየቱን አስገዳጅ ለማድረግ !important እንጨምራለን */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    flex-direction: column;
+}
