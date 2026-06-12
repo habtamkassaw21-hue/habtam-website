@@ -24,7 +24,7 @@ header {
     color: #ff9f00;
 }
 
-/* 1. ማውጫው መጀመሪያ በግራ በኩል ተደብቆ እንዲቆይ ማድረግ */
+/* 1. ማውጫው (nav) መጀመሪያ በግራ በኩል ተደብቆ እንዲቆይ ማድረግ */
 nav {
     display: flex !important;
     flex-direction: column;
@@ -39,7 +39,7 @@ nav {
     z-index: 999; /* ከሁሉም በላይ እንዲሆን */
 }
 
-/* 3 serezua sineka sliding bafit yemetal */
+/* ባለ 3 መስመሯ ስትነካ ማውጫው ከግራ ተንሸራቶ ይመጣል */
 nav.active {
     left: 0;
 }
@@ -84,11 +84,7 @@ nav a:hover {
     border-radius: 2px;
 }
 
-/* 3. የካርዶቹ የድሮ አቀማመጥ (ልክ እንደበፊቱ ውብ እንዲሆን) */
-.main-content {
-    padding: 20px;
-}
-
+/* 3. የካርዶቹ የድሮ አቀማመጥ (ልክ እንደበፊቱ ውብ እንዲሆን ያደርገዋል) */
 h2 {
     color: #0056b3;
     font-size: 2.2rem;
@@ -96,8 +92,8 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* ዋናው የካርድ መያዣ */
-.skills-container {
+/* ዋናው የካርድ መያዣ ሳጥን */
+.container {
     display: flex !important;
     justify-content: center !important;
     gap: 30px !important;
@@ -108,7 +104,7 @@ h2 {
 }
 
 /* የካርዶቹ ነጭ ሳጥን ዲዛይን */
-.skill-card {
+.skills-box {
     background-color: white !important;
     border-radius: 10px !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
@@ -117,10 +113,10 @@ h2 {
     min-width: 300px !important;
     box-sizing: border-box !important;
     text-align: left !important;
-    display: block !important;
+    display: inline-block !important;
 }
 
-.skill-card h3 {
+.skills-box h3 {
     color: #333 !important;
     font-size: 1.5rem !important;
     border-bottom: 2px solid #0056b3 !important;
@@ -129,14 +125,14 @@ h2 {
     text-align: center !important;
 }
 
-/* በካርዱ ውስጥ ያሉ የሰማያዊ በተኖች ዲዛይን */
-.skill-list {
+/* በካርዱ ውስጥ ያሉ የነጥብ ምልክቶችን ማጥፊያ እና በተን ማድረጊያ */
+.skills-box ul {
     list-style: none !important;
     padding: 0 !important;
     margin: 20px 0 0 0 !important;
 }
 
-.skill-list li {
+.skills-box ul li {
     background-color: #4a90e2 !important;
     color: white !important;
     padding: 12px !important;
@@ -144,7 +140,7 @@ h2 {
     border-radius: 5px !important;
     text-align: center !important;
     font-weight: bold !important;
-    list-style-type: none !important;
+    list-style-type: none !important; /* ነጥቦቹን ሙሉ በሙሉ ያጠፋቸዋል */
 }
 
 footer {
