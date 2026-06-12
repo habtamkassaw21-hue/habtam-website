@@ -142,10 +142,13 @@ header h1 {
     100% {
         transform: translate3d(-100%, 0, 0); /* ሙሉ በሙሉ ወደ ግራ እንዲጠፋ ያደርጋል */
     }
-}
-/* 1. ማውጫው (nav) መጀመሪያ በሁሉም ስክሪን (በPCም በስልክም) ተደብቆ እንዲቆይ ማድረግ */
+/* ==================================================
+   ይህንን ኮድ በየ CSS ፋይሎቹ መጨረሻ ላይ ብቻ ጨምረው
+   ================================================== */
+
+/* 1. ማውጫው (nav) መጀመሪያ ተደብቆ እንዲቆይ ማድረግ */
 nav {
-    display: none !important; /* ይህ ኮድ በኮምፒውተርም ላይ ሊንኮቹን ያጠፋቸዋል */
+    display: none !important; /* በኮምፒውተርም ላይ ሊንኮቹን ይደብቃል */
     flex-direction: column;
     width: 100%;
     background-color: #222; /* የማውጫው የበስተጀርባ ቀለም */
@@ -156,7 +159,7 @@ nav {
     z-index: 99;
 }
 
-/* 2. በጃቫስክሪፕት አማካኝነት 'active' ሲሆን ብቻ ማውጫው እንዲታይ ማድረግ */
+/* 2. ቁልፉ ሲነካ ማውጫው እንዲታይ ማድረግ */
 nav.active {
     display: flex !important;
 }
@@ -171,9 +174,9 @@ nav a {
     display: block;
 }
 
-/* 3. ባለ 3 መስመሯ (Hamburger) ቁልፍ በኮምፒውተርም ሆነ በስልክ ሁሌም እንድትታይ ማድረግ */
+/* 3. ባለ 3 መስመሯ ቁልፍ በሁሉም ላይ እንድትታይ ማድረግ */
 .menu-toggle {
-    display: flex !important; /* በኮምፒውተርም ላይ እንድትታይ ያስገድዳል */
+    display: flex !important; 
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
