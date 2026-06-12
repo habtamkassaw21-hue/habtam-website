@@ -155,3 +155,69 @@ nav a {
     background-color: white;
     border-radius: 2px;
 }
+
+/* ==================================================
+   የ 3 መስመሯ ቁልፍ እና ማውጫው ከግራ እንዲመጣ ማድረጊያ ኮድ
+   ================================================== */
+
+/* 1. ማውጫው (nav) መጀመሪያ በግራ በኩል ተደብቆ እንዲቆይ ማድረግ */
+nav {
+    display: flex !important;
+    flex-direction: column;
+    width: 250px;
+    height: 100vh;
+    background-color: #222;
+    position: fixed;
+    top: 0;
+    left: -250px; /* 🛑 መጀመሪያ ሙሉ በሙሉ በስተግራ ይደበቃል */
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+/* ባለ 3 መስመሯ ስትነካ ብቻ ማውጫው ከግራ ተንሸራቶ ይወጣል */
+nav.active {
+    left: 0 !important;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: block;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    margin: 0;
+}
+
+nav a:hover {
+    color: #ffd700;
+    background-color: #004aad;
+}
+
+/* 2. ባለ 3 መስመሯ ቁልፍ አቀማመጥ (በስተግራ ከላይ) */
+.menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 35px; /* ከላይ ያለው ርቀት */
+    left: 20px; /* ከግራ ያለው ርቀት */
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
