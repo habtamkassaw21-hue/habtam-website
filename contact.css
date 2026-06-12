@@ -17,17 +17,17 @@ header {
     text-align: center;
     color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    position: relative;
+    position: relative; /* ባለ 3 መስመሯን በግራ በኩል ለመለጠፍ ይረዳል */
     overflow: hidden;
-    white-space: nowrap; /* ጽሑፉ ወደ ታች እንዳይወርድ በአንድ መስመር እንዲሆን ያደርጋል */
+    white-space: nowrap;
 }
 
 header h1 {
     font-size: 32px;
-    margin-bottom: 10px;
+    margin: 0;
     display: inline-block;
-    padding-left: 100%; /* አኒሜሽኑ ከቀኝ ጠርዝ እንዲጀምር ያደርጋል */
-    animation: scroll-text 12s linear infinite; /* በየ 12 ሰከንዱ ያለማቋረጥ ይሽከረከራል */
+    padding-left: 100%;
+    animation: scroll-text 12s linear infinite;
 }
 
 /* የእንቅስቃሴው መንገድ (Keyframes) */
@@ -36,15 +36,15 @@ header h1 {
         transform: translate3d(0, 0, 0);
     }
     100% {
-        transform: translate3d(-100%, 0, 0); /* ሙሉ በሙሉ ወደ ግራ እንዲጠፋ ያደርጋል */
+        transform: translate3d(-100%, 0, 0);
     }
 }
 
-/* 1. ማውጫው (nav) መጀመሪያ በግራ በኩል ትንሽ ሆኖ ተደብቆ እንዲቆይ ማድረግ */
+/* 1. ማውጫው (nav) መጀመሪያ በግራ በኩል ተደብቆ እንዲቆይ ማድረግ */
 nav {
     display: flex !important;
     flex-direction: column;
-    width: 250px; /* 🛑 ጥቁሩ ማውጫ እንዳይሰፋ መጠኑ 250px ብቻ ተደርጓል! */
+    width: 250px;
     height: 100vh;
     background-color: #222;
     position: fixed;
@@ -78,7 +78,7 @@ nav a:hover {
     background-color: #004aad;
 }
 
-/* 2. ባለ 3 መስመሯ ቁልፍ አቀማመጥ (በስተግራ ከላይ) */
+/* 2. 🎯 ባለ 3 መስመሯ ቁልፍ አቀማመጥ (ልክ እንደ Skills.html በግራ በኩል ጎን ላይ) */
 .menu-toggle {
     display: flex !important;
     flex-direction: column;
@@ -89,16 +89,16 @@ nav a:hover {
     border: none;
     cursor: pointer;
     padding: 0;
-    position: absolute;
-    top: 35px; /* ከላይ ያለው ርቀት */
-    left: 20px; /* ከግራ ያለው ርቀት */
-    z-index: 1000;
+    position: absolute; /* በራሷ ነፃ እንድትሆን */
+    top: 35px; /* ከላይ ወደ ታች ዝቅ ማድረጊያ (ልክ እንደ Skills) */
+    left: 20px; /* ሙሉ በሙሉ በስተግራ ዳር ላይ መለጠፊያ */
+    z-index: 1000; /* ከሁሉም በላይ እንድትሆን */
 }
 
 .menu-toggle span {
     width: 100%;
     height: 3px;
-    background-color: white;
+    background-color: white; /* መስመሮቹ ነጭ እንዲሆኑ */
     border-radius: 2px;
 }
 
@@ -107,7 +107,7 @@ nav a:hover {
     padding: 40px 20px;
     background: white;
     width: 90%;
-    max-width: 800px; /* ይዘቱ መካከለኛ እንዲሆን */
+    max-width: 800px;
     margin: 30px auto;
     border-radius: 15px;
     text-align: center;
