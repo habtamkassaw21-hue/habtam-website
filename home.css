@@ -1,6 +1,142 @@
-/* 1. ማውጫው (nav) መጀመሪያ በሁሉም ስክሪን (በኮምፒውተርም በስልክም) ተደብቆ እንዲቆይ ማድረግ */
+/* ===== 1. ጠቅላላ ገጽታ (Background) ===== */
+body {
+    background: #f4f6f9;
+    color: #222;
+    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== 2. ሰማያዊው የበላይ ማውጫ (HEADER) ===== */
+header {
+    background: #004aad;
+    padding: 25px 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+}
+
+/* የርዕሱ መያዣ */
+.title-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-text 12s linear infinite;
+    color: #ffd700; /* ወርቃማ ቢጫ */
+}
+
+/* ሜኑዎቹ መሃል ላይ እንዲሆኑ */
 nav {
-    display: none; /* ይህ ኮድ ሁሉንም ሊንኮች ከስክሪኑ ላይ ያጠፋቸዋል */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 19px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffd700;
+}
+
+/* ===== 3. ዋናው ነጭ ሳጥን (የበለጠ ሰፊ እንዲሆን የተደረገው) ===== */
+/* ===== 3. ዋናው ነጭ ሳጥን (ሙሉ በሙሉ ሰፊ እንዲሆን) ===== */
+/* ===== 3. ዋናው ነጭ ሳጥን (ልክ እንደሌሎቹ ገጾች መካከለኛ መጠን) ===== */
+.section {
+    padding: 50px 40px; /* የውስጥ ክፍተቱ መካከለኛ */
+    background: #ffffff;
+    margin: 40px auto; 
+    
+    /* ልክ እንደ ሌሎቹ ገጾችህ 85% ስፋት እና ማክሲመም 950px ርዝመት */
+    width: 85%; 
+    max-width: 950px; 
+    
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    
+    /* ፎቶውንና ጽሑፉን መሃል ላይ እኩል ማሰለፊያ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* በፎቶው እና በጽሑፉ መካከል ያለው ክፍተት */
+}
+/* ===== 4. ፎቶውን ክብ ማድረጊያ ===== */
+.profile-img {
+    border-radius: 50%;
+    width: 200px; /* ፎቶውን ከበፊቱ ትንሽ ጎላ አድርገነዋል */
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid #004aad;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ===== 5. የጽሑፍ ማስተካከያ ===== */
+.info-area {
+    text-align: left;
+}
+
+h2 {
+    font-size: 38px; /* ርዕሱን ይበልጥ ጎላ አድርገነዋል */
+    margin-bottom: 20px;
+    color: #004aad;
+}
+
+.profession-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profession-list li {
+    font-size: 22px; /* ዝርዝሮቹን በትልቁ እንዲታዩ አድርገነዋል */
+    text-align: left;
+    margin: 15px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ===== 6. የበታች ማውጫ (FOOTER) ===== */
+footer {
+    background: #004aad;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ===== 7. የጽሑፍ አኒሜሽን ===== */
+@keyframes scroll-text {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+/* 1. ማውጫው (nav) መጀመሪያ በሁሉም ስክሪን (በPCም በስልክም) ተደብቆ እንዲቆይ ማድረግ */
+nav {
+    display: none !important; /* ይህ ኮድ በኮምፒውተርም ላይ ሊንኮቹን ያጠፋቸዋል */
     flex-direction: column;
     width: 100%;
     background-color: #222; /* የማውጫው የበስተጀርባ ቀለም */
@@ -26,7 +162,7 @@ nav a {
     display: block;
 }
 
-/* 3. ባለ 3 መስመሯ (Hamburger) ቁልፍ በኮምፒውተርም ላይ ሁሌም እንድትታይ ማድረግ */
+/* 3. ባለ 3 መስመሯ (Hamburger) ቁልፍ በኮምፒውተርም ሆነ በስልክ ሁሌም እንድትታይ ማድረግ */
 .menu-toggle {
     display: flex !important; /* በኮምፒውተርም ላይ እንድትታይ ያስገድዳል */
     flex-direction: column;
@@ -38,7 +174,8 @@ nav a {
     cursor: pointer;
     padding: 0;
     z-index: 100;
-    margin-left: 20px; /* ቦታዋን ለማስተካከል */
+    margin-top: 15px;
+    margin-left: 20px;
 }
 
 .menu-toggle span {
