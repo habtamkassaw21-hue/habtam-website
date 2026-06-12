@@ -26,22 +26,22 @@ header {
 
 /* 1. ማውጫው (nav) መጀመሪያ በግራ በኩል ተደብቆ እንዲቆይ ማድረግ */
 nav {
-    display: flex !important;
+    display: flex !important; /* መዋቅሩ ፍሌክስ ይሁን */
     flex-direction: column;
     width: 250px;
     height: 100vh;
     background-color: #222;
     position: fixed;
     top: 0;
-    left: -250px; /* መጀመሪያ ተደብቋል */
+    left: -250px; /* 🛑 ይህ መስመር መጀመሪያ ሙሉ በሙሉ ደብቆ ያቆየዋል! */
     padding-top: 80px;
     transition: left 0.3s ease;
     z-index: 999;
 }
 
-/* ባለ 3 መስመሯ ስትነካ ማውጫው ከግራ ተንሸራቶ ይመጣል */
+/* ባለ 3 መስመሯ ስትነካ ብቻ ማውጫው 0 ላይ መጥቶ ይታያል */
 nav.active {
-    left: 0;
+    left: 0 !important;
 }
 
 nav a {
