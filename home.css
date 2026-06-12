@@ -134,3 +134,51 @@ footer {
         transform: translate3d(-100%, 0, 0);
     }
 }
+/* መደበኛ ስክሪን ላይ ባለ 3 መስመሯ ቁልፍ እንዳትታይ መደበቅ */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: white; /* የመስመሮቹ ቀለም */
+    border-radius: 2px;
+}
+
+/* ስክሪኑ ከ 768px በታች ሲሆን (ለስልክ) የሚሆን ዲዛይን */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* አሁን ባለ 3 መስመሯ ቁልፍ ትታያለች */
+    }
+
+    nav {
+        display: none; /* መጀመሪያ ማውጫው ተደብቆ ይቆያል */
+        flex-direction: column;
+        width: 100%;
+        background-color: #333; /* የማውጫው የበስተጀርባ ቀለም */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    /* በጃቫስክሪፕት አማካኝነት 'active' የሚል ስም ሲሰጠው ማውጫው እንዲከፈት ማድረግ */
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        padding: 10px 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
