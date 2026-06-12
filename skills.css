@@ -1,5 +1,5 @@
 /* ==================================================
-   ለ Skills.html የተስተካከለ የተሟላ የዲዛይን ኮድ (FINAL)
+   ለ Skills.html የተስተካከለ የተሟላ የዲዛይን ኮድ (100% FIXED)
    ================================================== */
 
 body {
@@ -103,8 +103,8 @@ h2 {
     margin: 0 auto !important;
 }
 
-/* የካርዶቹ ነጭ ሳጥን ዲዛይን */
-.skill-card {
+/* በ HTML ፋይልህ ውስጥ ያሉትን 3ቱንም ሳጥኖች በአንድ ላይ ዲዛይን ማድረጊያ */
+.programming-languages, .web-development, .other-skills {
     background-color: white !important;
     border-radius: 10px !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
@@ -114,9 +114,12 @@ h2 {
     box-sizing: border-box !important;
     text-align: left !important;
     display: inline-block !important;
+    margin: 15px !important;
+    vertical-align: top !important;
 }
 
-.skill-card h3 {
+/* የካርዶቹ የውስጥ አርዕስት ዲዛይን */
+.programming-languages h3, .web-development h3, .other-skills h3 {
     color: #333 !important;
     font-size: 1.5rem !important;
     border-bottom: 2px solid #0056b3 !important;
@@ -126,13 +129,13 @@ h2 {
 }
 
 /* የሰማያዊ በተኖቹ (List) መልክ እና ነጥብ ማጥፊያ */
-.skill-card ul {
+.programming-languages ul, .web-development ul, .other-skills ul {
     list-style: none !important;
     padding: 0 !important;
     margin: 20px 0 0 0 !important;
 }
 
-.skill-card ul li {
+.programming-languages ul li, .web-development ul li, .other-skills ul li {
     background-color: #4a90e2 !important; /* የሰማያዊ በተኑ ቀለም */
     color: white !important;
     padding: 12px !important;
