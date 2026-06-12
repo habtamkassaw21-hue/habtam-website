@@ -95,72 +95,7 @@ header h1 {
         transform: translate3d(-100%, 0, 0); /* ሙሉ በሙሉ ወደ ግራ እንዲጠፋ ያደርጋል */
     }
 }
-/* ቁልፉ ሲነካ ማውጫው እንዲታይ የሚያደርገው ኮድ */
-nav.active {
-    display: flex !important; /* መታየቱን አስገዳጅ ለማድረግ !important እንጨምራለን */
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    flex-direction: column;
-}
-/* 1. ማውጫው (nav) መጀመሪያ በሁሉም ስክሪን (በPCም በስልክም) ተደብቆ እንዲቆይ ማድረግ */
-nav {
-    display: none !important; /* ይህ ኮድ በኮምፒውተርም ላይ ሊንኮቹን ያጠፋቸዋል */
-    flex-direction: column;
-    width: 100%;
-    background-color: #222; /* የማውጫው የበስተጀርባ ቀለም */
-    position: absolute;
-    top: 60px;
-    left: 0;
-    padding: 15px 0;
-    z-index: 99;
-}
-
-/* 2. በጃቫስክሪፕት አማካኝነት 'active' ሲሆን ብቻ ማውጫው እንዲታይ ማድረግ */
-nav.active {
-    display: flex !important;
-}
-
-nav a {
-    padding: 10px 20px;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    display: block;
-}
-
-/* 3. ባለ 3 መስመሯ (Hamburger) ቁልፍ በኮምፒውተርም ሆነ በስልክ ሁሌም እንድትታይ ማድረግ */
-.menu-toggle {
-    display: flex !important; /* በኮምፒውተርም ላይ እንድትታይ ያስገድዳል */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 100;
-    margin-top: 15px;
-    margin-left: 20px;
-}
-
-.menu-toggle span {
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    border-radius: 2px;
-}
-
-/* ==================================================
-   የ 3 መስመሯ ቁልፍ እና ማውጫው ከግራ እንዲመጣ ማድረጊያ ኮድ
-   ================================================== */
-
-/* 1. ማውጫው (nav) መጀመሪያ በግራ በኩል ተደብቆ እንዲቆይ ማድረግ */
+/* ማውጫው መጀመሪያ በግራ በኩል ተደብቆ ይቆያል */
 nav {
     display: flex !important;
     flex-direction: column;
@@ -169,55 +104,13 @@ nav {
     background-color: #222;
     position: fixed;
     top: 0;
-    left: -250px; /* 🛑 መጀመሪያ ሙሉ በሙሉ በስተግራ ይደበቃል */
+    left: -250px; /* ሙሉ በሙሉ ይደብቀዋል */
     padding-top: 80px;
     transition: left 0.3s ease;
     z-index: 999;
 }
 
-/* ባለ 3 መስመሯ ስትነካ ብቻ ማውጫው ከግራ ተንሸራቶ ይወጣል */
+/* 3 መስመሯ ስትነካ በጃቫስክሪፕት አማካኝነት ይህ ይሠራና ማውጫውን ያመጣዋል */
 nav.active {
     left: 0 !important;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
-    display: block;
-    text-align: left;
-    border-bottom: 1px solid #333;
-    margin: 0;
-}
-
-nav a:hover {
-    color: #ffd700;
-    background-color: #004aad;
-}
-
-/* 2. ባለ 3 መስመሯ ቁልፍ አቀማመጥ (በስተግራ ከላይ) */
-.menu-toggle {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: absolute;
-    top: 35px; /* ከላይ ያለው ርቀት */
-    left: 20px; /* ከግራ ያለው ርቀት */
-    z-index: 1000;
-}
-
-.menu-toggle span {
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    border-radius: 2px;
 }
