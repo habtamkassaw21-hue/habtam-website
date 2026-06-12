@@ -1,8 +1,14 @@
+/* ==================================================
+   ለ Contact.html የተስተካከለ የተሟላ የዲዛይን ኮድ (100% FIXED)
+   ================================================== */
 
 body {
     background: #f4f6f9;
     color: #222;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 header {
@@ -11,29 +17,97 @@ header {
     text-align: center;
     color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap; /* ጽሑፉ ወደ ታች እንዳይወርድ በአንድ መስመር እንዲሆን ያደርጋል */
 }
 
 header h1 {
     font-size: 32px;
     margin-bottom: 10px;
+    display: inline-block;
+    padding-left: 100%; /* አኒሜሽኑ ከቀኝ ጠርዝ እንዲጀምር ያደርጋል */
+    animation: scroll-text 12s linear infinite; /* በየ 12 ሰከንዱ ያለማቋረጥ ይሽከረከራል */
 }
+
+/* የእንቅስቃሴው መንገድ (Keyframes) */
+@keyframes scroll-text {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0); /* ሙሉ በሙሉ ወደ ግራ እንዲጠፋ ያደርጋል */
+    }
+}
+
+/* 1. ማውጫው (nav) መጀመሪያ በግራ በኩል ትንሽ ሆኖ ተደብቆ እንዲቆይ ማድረግ */
+nav {
+    display: flex !important;
+    flex-direction: column;
+    width: 250px; /* 🛑 ጥቁሩ ማውጫ እንዳይሰፋ መጠኑ 250px ብቻ ተደርጓል! */
+    height: 100vh;
+    background-color: #222;
+    position: fixed;
+    top: 0;
+    left: -250px; /* መጀመሪያ ሙሉ በሙሉ በስተግራ ይደበቃል */
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+/* ባለ 3 መስመሯ ስትነካ ብቻ ማውጫው ከግራ ተንሸራቶ ይወጣል */
+nav.active {
+    left: 0 !important;
+}
+
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
+    padding: 15px 20px;
     font-size: 18px;
     font-weight: bold;
     transition: 0.3s;
+    display: block;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    margin: 0;
 }
 
 nav a:hover {
     color: #ffd700;
-
+    background-color: #004aad;
 }
+
+/* 2. ባለ 3 መስመሯ ቁልፍ አቀማመጥ (በስተግራ ከላይ) */
+.menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 35px; /* ከላይ ያለው ርቀት */
+    left: 20px; /* ከግራ ያለው ርቀት */
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* 3. የይዘቱ (Section) ውብ የድሮ ዲዛይን */
 .section {
     padding: 40px 20px;
     background: white;
     width: 90%;
+    max-width: 800px; /* ይዘቱ መካከለኛ እንዲሆን */
     margin: 30px auto;
     border-radius: 15px;
     text-align: center;
@@ -45,6 +119,7 @@ nav a:hover {
     margin-bottom: 25px;
     color: #004aad;
 }
+
 .section p {
     font-size: 20px;
     margin: 15px 0;
@@ -63,8 +138,8 @@ nav a:hover {
 
 .section a:hover {
     color: #ff9800;
-
 }
+
 footer {
     background: #004aad;
     color: white;
@@ -72,45 +147,4 @@ footer {
     padding: 15px 0;
     margin-top: 40px;
     font-size: 16px;
-}
-/* 1. የርዕሱ መያዣ (Header) ጽሑፉ ሲወጣ እንዳይታይ መሸፈኛ */
-header {
-    overflow: hidden;
-    white-space: nowrap; /* ጽሑፉ ወደ ታች እንዳይወርድ በአንድ መስመር እንዲሆን ያደርጋል */
-}
-
-/* 2. ርዕሱ ከቀኝ ወደ ግራ እንዲንቀሳቀስ ማድረግ */
-header h1 {
-    display: inline-block;
-    padding-left: 100%; /* አኒሜሽኑ ከቀኝ ጠርዝ እንዲጀምር ያደርጋል */
-    animation: scroll-text 12s linear infinite; /* በየ 12 ሰከንዱ ያለማቋረጥ ይሽከረከራል */
-}
-
-/* 3. የእንቅስቃሴው መንገድ (Keyframes) */
-@keyframes scroll-text {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-100%, 0, 0); /* ሙሉ በሙሉ ወደ ግራ እንዲጠፋ ያደርጋል */
-    }
-}
-/* ማውጫው መጀመሪያ በግራ በኩል ተደብቆ ይቆያል */
-nav {
-    display: flex !important;
-    flex-direction: column;
-    width: 250px;
-    height: 100vh;
-    background-color: #222;
-    position: fixed;
-    top: 0;
-    left: -250px; /* ሙሉ በሙሉ ይደብቀዋል */
-    padding-top: 80px;
-    transition: left 0.3s ease;
-    z-index: 999;
-}
-
-/* 3 መስመሯ ስትነካ በጃቫስክሪፕት አማካኝነት ይህ ይሠራና ማውጫውን ያመጣዋል */
-nav.active {
-    left: 0 !important;
 }
