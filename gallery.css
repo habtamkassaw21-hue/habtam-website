@@ -1,48 +1,102 @@
+/* ===== 1. ጠቅላላ ገጽታ ===== */
 body {
     background: #f4f6f9;
     color: #222;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: margin-left 0.3s ease;
 }
+
+/* ===== 2. ሰማያዊው ሄደር (Header) ===== */
 header {
     background: #004aad;
     padding: 25px 0;
     text-align: center;
     color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 header h1 {
     font-size: 32px;
-    margin-bottom: 10px;
+    margin: 0;
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-text 12s linear infinite;
+    color: #ffd700;
 }
+
+@keyframes scroll-text {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* 🎯 3. ማውጫው (nav) በግራ በኩል መጥቶ ተደብቆ እንዲቆይ (250px) */
+nav {
+    display: flex !important;
+    flex-direction: column;
+    width: 250px;
+    height: 100vh;
+    background-color: #222;
+    position: fixed;
+    top: 0;
+    left: -250px; /* መጀመሪያ ይደበቃል */
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+nav.active { left: 0 !important; }
+
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
+    padding: 15px 20px;
     font-size: 18px;
     font-weight: bold;
-    transition: 0.3s;
+    display: block;
+    text-align: left;
+    border-bottom: 1px solid #333;
 }
 
-nav a:hover {
-    color: #ffd700;
-    
+/* 🎯 4. ባለ 3 መስመሯ ቁልፍ (ከላይ በስተግራ) */
+.menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    z-index: 1000;
 }
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* ===== 5. የ Gallery ገጽ ይዘቶች ===== */
 .section {
     padding: 40px 20px;
     background: white;
-    width: 90%;
+    width: 85%;
+    max-width: 900px;
     margin: 30px auto;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-.section h2 {
-    font-size: 30px;
-    margin-bottom: 25px;
-    color: #004aad;
-}
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -50,6 +104,7 @@ nav a:hover {
     gap: 15px;
     margin-bottom: 25px;
 }
+
 .gallery img {
     width: 150px;
     height: 180px;
@@ -63,118 +118,19 @@ nav a:hover {
     transform: scale(1.08);
     cursor: pointer;
 }
-.section div img {
-    width: 150px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    transition: 0.3s ease-in-out;
-}
-
-.section div img:hover {
-    transform: scale(1.08);
-}
-.section h3 {
-    font-size: 24px;
-    margin-top: 25px;
-    margin-bottom: 10px;
-    color: #004aad;
-}
 
 video {
     margin: 15px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    max-width: 90%;
 }
+
 footer {
     background: #004aad;
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 20px 0;
     margin-top: 40px;
     font-size: 16px;
-}
-/* 1. የርዕሱ መያዣ (Header) ጽሑፉ ሲወጣ እንዳይታይ መሸፈኛ */
-header {
-    overflow: hidden;
-    white-space: nowrap; /* ጽሑፉ ወደ ታች እንዳይወርድ በአንድ መስመር እንዲሆን ያደርጋል */
-}
-
-/* 2. ርዕሱ ከቀኝ ወደ ግራ እንዲንቀሳቀስ ማድረግ */
-header h1 {
-    display: inline-block;
-    padding-left: 100%; /* አኒሜሽኑ ከቀኝ ጠርዝ እንዲጀምር ያደርጋል */
-    animation: scroll-text 12s linear infinite; /* በየ 12 ሰከንዱ ያለማቋረጥ ይሽከረከራል */
-}
-
-/* 3. የእንቅስቃሴው መንገድ (Keyframes) */
-@keyframes scroll-text {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-100%, 0, 0); /* ሙሉ በሙሉ ወደ ግራ እንዲጠፋ ያደርጋል */
-    }
-}
-/* ቁልፉ ሲነካ ማውጫው እንዲታይ የሚያደርገው ኮድ */
-nav.active {
-    display: flex !important; /* መታየቱን አስገዳጅ ለማድረግ !important እንጨምራለን */
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    flex-direction: column;
-}
-/* 1. ማውጫው (nav) መጀመሪያ በሁሉም ስክሪን (በPCም በስልክም) ተደብቆ እንዲቆይ ማድረግ */
-nav {
-    display: none !important; /* ይህ ኮድ በኮምፒውተርም ላይ ሊንኮቹን ያጠፋቸዋል */
-    flex-direction: column;
-    width: 100%;
-    background-color: #222; /* የማውጫው የበስተጀርባ ቀለም */
-    position: absolute;
-    top: 60px;
-    left: 0;
-    padding: 15px 0;
-    z-index: 99;
-}
-
-/* 2. በጃቫስክሪፕት አማካኝነት 'active' ሲሆን ብቻ ማውጫው እንዲታይ ማድረግ */
-nav.active {
-    display: flex !important;
-}
-
-nav a {
-    padding: 10px 20px;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    display: block;
-}
-
-/* 3. ባለ 3 መስመሯ (Hamburger) ቁልፍ በኮምፒውተርም ሆነ በስልክ ሁሌም እንድትታይ ማድረግ */
-.menu-toggle {
-    display: flex !important; /* በኮምፒውተርም ላይ እንድትታይ ያስገድዳል */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 100;
-    margin-top: 15px;
-    margin-left: 20px;
-}
-
-.menu-toggle span {
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    border-radius: 2px;
 }
