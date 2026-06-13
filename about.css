@@ -1,62 +1,55 @@
-/* ===== 1. ጠቅላላ ገጽታ (Background) ===== */
+/* ===== 1. ጠቅላላ ገጽታ ===== */
 body {
     background: #f4f6f9;
     color: #222;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    transition: margin-left 0.3s ease;
 }
 
-/* ===== 2. ሰማያዊው የበላይ ማውጫ (HEADER) ===== */
+/* ===== 2. ሰማያዊው ሄደር (Header) ===== */
 header {
     background: #004aad;
     padding: 25px 0;
     text-align: center;
     color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    position: relative; /* ባለ 3 መስመሯን በግራ በኩል ለመለጠፍ */
+    position: relative;
     overflow: hidden;
-    white-space: nowrap; /* ጽሑፉ ወደ ታች እንዳይወርድ በአንድ መስመር እንዲሆን ያደርጋል */
+    white-space: nowrap;
 }
 
-/* ርዕሱ ከቀኝ ወደ ግራ እንዲንቀሳቀስ ማድረግ */
 header h1 {
     font-size: 32px;
-    margin-bottom: 10px;
+    margin: 0;
     display: inline-block;
-    padding-left: 100%; /* አኒሜሽኑ ከቀኝ ጠርዝ እንዲጀምር ያደርጋል */
-    animation: scroll-text 12s linear infinite; /* በየ 12 ሰከንዱ ያለማቋረጥ ይሽከረከራል */
+    padding-left: 100%;
+    animation: scroll-text 12s linear infinite;
+    color: #ffd700;
 }
 
-/* የእንቅስቃሴው መንገድ (Keyframes) */
 @keyframes scroll-text {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-100%, 0, 0); /* ሙሉ በሙሉ ወደ ግራ እንዲጠፋ ያደርጋል */
-    }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
 }
 
-/* 🎯 3. ማውጫው (nav) በግራ በኩል መጥቶ ተደብቆ እንዲቆይ የተስተካከለ (100% FIXED) */
+/* 🎯 3. ማውጫው (nav) በግራ በኩል መጥቶ ተደብቆ እንዲቆይ (250px) */
 nav {
     display: flex !important;
     flex-direction: column;
-    width: 250px; /* 🛑 ጥቁሩ ማውጫ እንዳይሰፋ መጠኑ 250px ብቻ ተደርጓል! */
+    width: 250px;
     height: 100vh;
-    background-color: #222; /* የማውጫው ጥቁር ቀለም */
-    position: fixed; /* በገጹ ላይ ተጣብቆ እንዲቆም */
+    background-color: #222;
+    position: fixed;
     top: 0;
-    left: -250px; /* መጀመሪያ ሙሉ በሙሉ በስተግራ ይደበቃል */
+    left: -250px; /* መጀመሪያ ይደበቃል */
     padding-top: 80px;
     transition: left 0.3s ease;
     z-index: 999;
 }
 
-/* በጃቫስክሪፕት 'active' ሲሆን ከግራ ተንሸራቶ ይገባል */
-nav.active {
-    left: 0 !important;
-}
+nav.active { left: 0 !important; }
 
 nav a {
     color: white;
@@ -64,19 +57,12 @@ nav a {
     padding: 15px 20px;
     font-size: 18px;
     font-weight: bold;
-    transition: 0.3s;
     display: block;
-    text-align: left; /* ጽሑፉ ወደ ግራ እንዲለጠፍ */
+    text-align: left;
     border-bottom: 1px solid #333;
-    margin: 0;
 }
 
-nav a:hover {
-    color: #ffd700;
-    background-color: #004aad;
-}
-
-/* 🎯 4. ባለ 3 መስመሯ ቁልፍ አቀማመጥ (ልክ እንደሌሎቹ ገጾች ከላይ በስተግራ ዳር ላይ) */
+/* 🎯 4. ባለ 3 መስመሯ ቁልፍ (ከላይ በስተግራ) */
 .menu-toggle {
     display: flex !important;
     flex-direction: column;
@@ -86,10 +72,9 @@ nav a:hover {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
     position: absolute;
-    top: 35px; /* ከላይ ያለው ርቀት */
-    left: 20px; /* ሙሉ በሙሉ በስተግራ ዳር ላይ መለጠፊያ */
+    top: 35px;
+    left: 20px;
     z-index: 1000;
 }
 
@@ -100,75 +85,42 @@ nav a:hover {
     border-radius: 2px;
 }
 
-/* ===== 5. የይዘቱ ክፍሎች (Sections & About) ===== */
-.section {
-    padding: 50px 20px;
-    text-align: left;
-    background: #ffffff;
-    margin: 30px auto;
-    width: 85%;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
+/* ===== 5. የ About ገጽ ይዘቶች ===== */
 .about {
     max-width: 900px;
     margin: 60px auto;
-    background: #e7f0f5;
+    background: #ffffff;
     padding: 40px;
-    border-radius: 30px; /* የተስተካከለ border-radius */
+    border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.about h1 {
-    text-align: center;
-    color: #1abc9c;
-    font-size: 32px;
-    padding: 12px;
-    margin-bottom: 30px;
 }
 
 .about-content {
     display: flex;
     align-items: center;
     gap: 30px;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .profile-pic-side {
     width: 300px;
-    height: 520px;
+    height: 300px;
     object-fit: cover;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 50%; /* ክብ እንዲሆን */
+    border: 5px solid #004aad;
     transition: transform 0.3s ease;
 }
 
-.profile-pic-side:hover {
-    transform: scale(1.05);
-}
-
-.about-text, .about p {
+.about-text {
     max-width: 500px;
-    text-align: left;
-    line-height: 1.6;
-    font-size: 16px;
-}
-
-.about p {
-    font-size: 17px;
-    color: #444;
     text-align: justify;
-    margin-top: 10px;
 }
 
-/* ===== 6. የበታች ማውጫ (FOOTER) ===== */
 footer {
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     background-color: #2c3e50;
     color: white;
-    font-size: 14px;
     margin-top: 60px;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
