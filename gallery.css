@@ -34,11 +34,11 @@ header h1 {
     100% { transform: translate3d(-100%, 0, 0); }
 }
 
-/* 🎯 3. ማውጫው (nav) በግራ በኩል መጥቶ ተደብቆ እንዲቆይ (250px) */
+/* 🎯 3. ማውጫው (nav) በግራ በኩል በትንሹ እንዲወጣ የተስተካከለ */
 nav {
     display: flex !important;
     flex-direction: column;
-    width: 250px;
+    width: 250px; /* 🛑 የጥቁሩ ማውጫ ስፋት */
     height: 100vh;
     background-color: #222;
     position: fixed;
@@ -60,6 +60,11 @@ nav a {
     display: block;
     text-align: left;
     border-bottom: 1px solid #333;
+}
+
+nav a:hover {
+    color: #ffd700;
+    background-color: #004aad;
 }
 
 /* 🎯 4. ባለ 3 መስመሯ ቁልፍ (ከላይ በስተግራ) */
@@ -85,7 +90,7 @@ nav a {
     border-radius: 2px;
 }
 
-/* ===== 5. የ Gallery ገጽ ይዘቶች ===== */
+/* ===== 5. የ Gallery ይዘቶች ===== */
 .section {
     padding: 40px 20px;
     background: white;
@@ -119,18 +124,11 @@ nav a {
     cursor: pointer;
 }
 
-video {
-    margin: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    max-width: 90%;
-}
-
 footer {
     background: #004aad;
     color: white;
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;
-    font-size: 16px;
+    width: 100%;
 }
