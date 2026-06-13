@@ -36,14 +36,14 @@ header h1 {
     color: #ffd700; /* ወርቃማ ቢጫ */
 }
 
-/* 🎯 3. ማውጫው (nav) በግራ በኩል መጥቶ ተደብቆ እንዲቆይ የተስተካከለ */
+/* 🎯 3. ማውጫው (nav) በግራ በኩል መጥቶ ተደብቆ እንዲቆይ የተስተካከለ (100% FIXED) */
 nav {
     display: flex !important;
     flex-direction: column;
-    width: 250px; /* ሙሉ ስክሪን እንዳይሆን ስፋቱ 250px ብቻ ተደርጓል */
+    width: 250px; /* 🛑 ጥቁሩ ማውጫ እንዳይሰፋ መጠኑ 250px ብቻ ተደርጓል! */
     height: 100vh;
     background-color: #222; /* የማውጫው ጥቁር ቀለም */
-    position: fixed;
+    position: fixed; /* በገጹ ላይ ተጣብቆ እንዲቆም */
     top: 0;
     left: -250px; /* መጀመሪያ ሙሉ በሙሉ በስተግራ ይደበቃል */
     padding-top: 80px;
@@ -74,7 +74,7 @@ nav a:hover {
     background-color: #004aad;
 }
 
-/* 🎯 4. ባለ 3 መስመሯ ቁልፍ (ልክ እንደ ሌሎቹ ገጾች ከላይ በስተግራ ዳር ላይ) */
+/* 🎯 4. ባለ 3 መስመሯ ቁልፍ አቀማመጥ (ልክ እንደ ሌሎቹ ገጾች ከላይ በስተግራ ዳር ላይ) */
 .menu-toggle {
     display: flex !important;
     flex-direction: column;
@@ -156,7 +156,6 @@ footer {
     padding: 20px 0;
     font-size: 16px;
     letter-spacing: 1px;
-    position: relative; /* ወደ ታች ሲወርድ ይዘቱን እንዳይሸፍን relative ተደርጓል */
     margin-top: 40px;
     width: 100%;
 }
